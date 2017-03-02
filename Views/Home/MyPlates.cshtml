@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PlateSpotter.Models.Plate>
+@{
+    ViewBag.Title = "Mina Plåtar";
+}
+<h2>@ViewBag.Title.</h2>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Plåtnummer</th>
+                <th>Datum</th>
+                <th>Plats</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model) {
+                <tr>
+                    <td>@p.PlateNr</td>
+                    <td>@p.Date</td>
+                    <td>Tryck här för karta</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

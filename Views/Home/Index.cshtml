@@ -1,0 +1,58 @@
+﻿@using PlateSpotter.Models
+@model Plate
+@{
+    ViewBag.Title = "Home Page";
+    var modelPlateNr = Model.PlateNr + 1;
+}
+
+<div class="jumbotron">
+    <h2>Du letar efter dennna nummerplåten</h2>
+    <a type="submit"><img  src="~/Content/plate.png" style="width: 100%"/></a>
+    @if (User.Identity.IsAuthenticated)
+    {
+
+        <h2 id="numbers">
+                @if (modelPlateNr <= 999)
+                {
+                    @modelPlateNr
+                }
+                else
+                {
+                   string grattis = "grattis du har hittat alla påttar";
+                    @grattis
+                }
+
+            </h2>
+    }
+    else
+    {
+        <h2 id="numbers">
+            Här kommer du se vilket <br/>
+            nummer du är på
+        </h2>
+    }
+    <h2>Tryck på plåtjävlen för att gå o leta efter nästa jävla plåtjävel</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Dina sedda plåtjävlar</h2>
+        <p>
+            Här kan du se när och var du har sett dina jävla plåtar. Perfekt om du vill visa släkten hur lite lite liv du har.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Mina Plåtar &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Topplistan</h2>
+        <p>Här kan du se vilka i Sverige som har haft mest fritid och som har sett flest plåtar eller fuskat</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Topplistan &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Kartan</h2>
+        <p>Problem med att hitta en plåtjävel? Här kan du se på kartan vart folk har sett sina plåtar så du kan fuska dig till alla plåtarna</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Kartan &raquo;</a></p>
+    </div>
+</div>
+
+<div id="map_canvas" style="height: 550px;"></div>
+
